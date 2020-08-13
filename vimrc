@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""
 " Author: 鄭皓中
-" GitHub: 
+" GitHub: git@github.com:reverie0829/My_vimrc.git 
 " License: MIT
 "
 " Last Update: 2020-08-13
