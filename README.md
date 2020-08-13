@@ -14,3 +14,12 @@ ubuntu 18.04
   ```
 - :PluginInstall
 - Modify the `Plugin Settings` in ~/.vimrc
+
+# Troubleshooting
+
+**Taglist: Exuberant ctags (http://ctags.sf.net) not found in PATH. Plugin is not loaded.**
+
+Reason: ctags is missing
+```
+sudo apt-get install ctags
+```
