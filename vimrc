@@ -11,7 +11,7 @@
 """""""""""""""""""""""""""""
 set nocompatible        "關閉兼容模式（必要）
 set noerrorbells        "關閉系統出錯時發出的響聲
-
+set visualbell          "代替bell的是螢幕閃爍
 
 """"""""""""""""""""""""""""""
 " Interface
