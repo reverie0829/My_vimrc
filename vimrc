@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""
 " Author: 鄭皓中
-" GitHub: https://github.com/reverie0829/My_vimrc 
+" GitHub: 
 " License: MIT
 "
 " Last Update: 2020-08-13
@@ -12,6 +12,7 @@
 set nocompatible        "關閉兼容模式（必要）
 set noerrorbells        "關閉系統出錯時發出的響聲
 set visualbell          "代替bell的是螢幕閃爍
+
 
 """"""""""""""""""""""""""""""
 " Interface
@@ -97,8 +98,10 @@ nnoremap <C-l> <Esc>gt
 inoremap jj <Esc>
 
 nnoremap <F1> :NERDTreeToggle<CR>
+nnoremap <F3> :tabnew<CR>
 nnoremap <F4> :noh<CR>
 noremap <F7> :wq<CR>
+noremap<F6> :q!<CR>
 
 "保存當下的session
 nnoremap <F8> :mksession! ~/.vim_manual_session.vim<CR>
@@ -108,3 +111,9 @@ nnoremap <F9> :source ~/.vim_manual_session.vim<CR>
 " Plugin related
 "nnoremap <C-g> :NERDTreeToggle<CR>
 nnoremap <silent> <F2> :TagbarToggle<CR>
+
+" clipboard
+vnoremap <C-c> "+y
+vnoremap <C-x> "+d
+nnoremap <C-p> "+p
+inoremap <C-v> <C-r>+
