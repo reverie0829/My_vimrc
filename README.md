@@ -12,6 +12,7 @@ ubuntu 18.04
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   ```
+- sudo apt-get install vim-gnome
 - vim
 - :PluginInstall
 - Modify the `Plugin Settings` in ~/.vimrc
