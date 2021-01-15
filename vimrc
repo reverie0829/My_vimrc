@@ -1,9 +1,9 @@
 """"""""""""""""""""""""""""""""""""""
 " Author: 鄭皓中
-" GitHub: 
+" GitHub: https://github.com/reverie0829/My_vimrc.git
 " License: MIT
 "
-" Last Update: 2020-08-13
+" Last Update: 2021-01-15
 """"""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""
@@ -84,24 +84,28 @@ endif
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+hi CursorLine cterm=none ctermbg=DarkGray  "顯示游標所在的列的highlight
 set noshowmode
 
 """""""""""""""""""""""""""""
 " Key remap
 """""""""""""""""""""""""""""
 " Non-plugin related
-nnoremap <C-h> <Esc>gT
-nnoremap <C-l> <Esc>gt
+nnoremap <C-h> <Esc>gT  "切換到下個分頁
+nnoremap <C-l> <Esc>gt  "切換到上個分頁
 :inoremap ( ()<Esc>i
 :inoremap {<CR> {<CR>}<Esc>ko
 :inoremap {{ {}<Esc>i
 inoremap jj <Esc>
+inoremap ;; <Esc>A;<Esc>
+:inoremap {<Space> <Esc>A{<CR>}<Esc>ko
 
 nnoremap <F1> :NERDTreeToggle<CR>
 nnoremap <F3> :tabnew<CR>
 nnoremap <F4> :noh<CR>
 noremap <F7> :wq<CR>
-noremap<F6> :q!<CR>
+noremap <F6> :q!<CR>
+noremap <F5> :w<CR>
 
 "保存當下的session
 nnoremap <F8> :mksession! ~/.vim_manual_session.vim<CR>
