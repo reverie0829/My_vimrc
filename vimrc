@@ -60,7 +60,31 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle', 'tag': '5.0.0' }
 Plug 'majutsushi/tagbar', {'on':['TagbarToggle'], 'tag': 'v2.7' }
 Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdcommenter'
+Plug 'dense-analysis/ale'
 call plug#end()
+
+"""""""""""""""""""""""""""""
+" ale
+""""""""""""""""""""""""""""" 
+"常駐左邊標示列
+"let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+"字定義error和warning圖標
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+"在vim自帶的狀態蘭中整合ale
+"let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK'] "用不到
+"顯示Linter名稱,出錯或警告等相關信息
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"普通模式下，sp前往上一個錯誤或警告，sn前往下一個錯誤或警告
+nmap sp <Plug>(ale_previous_wrap)
+nmap sn <Plug>(ale_next_wrap)
+"<Leader>s開啟/關閉語法檢查
+nmap <Leader>s :ALEToggle<CR>
+"<Leader>d查看錯誤或警告的詳細信息
+nmap <Leader>d :ALEDetail<CR>
 
 """""""""""""""""""""""""""""
 " Theme and specific settings 
@@ -121,3 +145,4 @@ vnoremap <C-c> "+y
 vnoremap <C-x> "+d
 nnoremap <C-p> "+p
 inoremap <C-v> <C-r>+
+
