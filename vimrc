@@ -64,25 +64,26 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 """""""""""""""""""""""""""""
-" ale
+" ALE
 """"""""""""""""""""""""""""" 
-"常駐左邊標示列
-"let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
-"字定義error和warning圖標
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-"在vim自帶的狀態蘭中整合ale
-"let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK'] "用不到
+"let g:ale_sign_column_always = 1                               "常駐左邊標示列
+let g:ale_set_highlights = 0                                    "錯誤的地方highlight
+let g:ale_sign_error = '✗'                                      "define error icon
+let g:ale_sign_warning = '⚠'                                    "define warning icon
+"let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']         "在vim自帶的狀態欄中整合ale
+
 "顯示Linter名稱,出錯或警告等相關信息
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 "普通模式下，sp前往上一個錯誤或警告，sn前往下一個錯誤或警告
 nmap sp <Plug>(ale_previous_wrap)
 nmap sn <Plug>(ale_next_wrap)
+
 "<Leader>s開啟/關閉語法檢查
 nmap <Leader>s :ALEToggle<CR>
+
 "<Leader>d查看錯誤或警告的詳細信息
 nmap <Leader>d :ALEDetail<CR>
 
@@ -91,25 +92,25 @@ nmap <Leader>d :ALEDetail<CR>
 " for vim and gvim
 """""""""""""""""""""""""""""
 set background=dark
-if !has('gui_running')
+
+if !has('gui_running')          "vim
     set t_Co=256
     colors wombat256i           " Default colorscheme for console vim
-else
+    hi CursorLine cterm=none ctermbg=DarkGray  " 顯示游標所在的列的highlight
+else                            "gvim
     colors wombat256            " Default colorscheme for gvim
-    "set guifont=Source\ Code\ Pro\ 10		" Recommended font
     set guioptions-=r           " Remove right-hand scroll bar
     set guioptions-=L           " Remove left-hand scroll bar
+    set guioptions+=a           " Enable copy-on-select
     "set guioptions-=T          " Remove toolbar
     "set guioptions-=m          " Remove menu bar
-    set guioptions+=a           " Enable copy-on-select
 endif
 
-" lightline specific settings
+" vim-plu gightline specific settings
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
-hi CursorLine cterm=none ctermbg=DarkGray  "顯示游標所在的列的highlight
-set noshowmode
+set noshowmode                  "因為 lightline 已經有顯示目前模式所以不需要再額外顯示目前模式
 
 """""""""""""""""""""""""""""
 " Key remap
