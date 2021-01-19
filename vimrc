@@ -126,7 +126,7 @@ inoremap ;; <Esc>A;<Esc>
 :inoremap {<Space> <Esc>A{<CR>}<Esc>ko
 
 nnoremap <F1> :NERDTreeToggle<CR>
-nnoremap <F3> :tabnew<CR>
+"nnoremap <F3> :tabnew<CR>
 nnoremap <F4> :noh<CR>
 noremap <F7> :wq<CR>
 noremap <F6> :q!<CR>
@@ -147,3 +147,22 @@ vnoremap <C-x> "+d
 nnoremap <C-p> "+p
 inoremap <C-v> <C-r>+
 
+"""""""""""""""""""""""""""""
+" Quickly Run
+"""""""""""""""""""""""""""""
+map <F3> :call CompileRun()<CR>
+
+func! CompileRun()
+    exec "w" 
+    if &filetype == 'c' 
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+    elseif &filetype == 'cpp'
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+    elseif &filetype == 'python'
+        exec '!time python %'
+    elseif &filetype == 'sh'
+        :!time bash %
+    endif                                                                              
+endfunc 
